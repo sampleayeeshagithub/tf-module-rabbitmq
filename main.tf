@@ -5,8 +5,8 @@ resource "aws_security_group" "main" {
 
   ingress {
     description = "ELASTICACHE"
-    from_port   = 6379
-    to_port     = 6379
+    from_port   = 5672
+    to_port     = 5672
     protocol    = "tcp"
     cidr_blocks = [var.vpc_cidr]
   }
