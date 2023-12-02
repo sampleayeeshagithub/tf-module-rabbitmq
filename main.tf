@@ -94,3 +94,11 @@ resource "aws_instance" "main" {
     kms_key_id = var.kms_key_id
   }
 }
+
+resource "aws_route53_record" "record" {
+  zone_id = var.zone_id
+  name    = "${var.component}-${var.env}"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.main.private_ip]
+}
